@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class ChatCalculator {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // Sender message
+    static void sender() {
+        System.out.print("Sender: ");
+        String msg = sc.nextLine();
+    }
+
+    // Receiver reply
+    static void receiver() {
+        System.out.println("Receiver: Hello! What do you want?");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+    }
+
+    // Calculator logic
+    static void calculate() {
+
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Receiver: Answer = " + (a + b));
+                break;
+
+            case 2:
+                System.out.println("Receiver: Answer = " + (a - b));
+                break;
+
+            case 3:
+                System.out.println("Receiver: Answer = " + (a * b));
+                break;
+
+            case 4:
+                if (b != 0) {
+                    System.out.println("Receiver: Answer = " + (a / b));
+                } else {
+                    System.out.println("Receiver: Cannot divide by zero.");
+                }
+                break;
+
+            default:
+                System.out.println("Receiver: Invalid choice.");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        sender();
+        receiver();
+        calculate();
+
+    }
+}
